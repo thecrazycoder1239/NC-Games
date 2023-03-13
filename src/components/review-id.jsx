@@ -23,14 +23,14 @@ export default function ReviewId() {
         <CircularProgress size={150} />
         </div>
       ) : (
-        <section>
+        <section className="review-id-card">
             <img src={review.review_img_url} alt="review image" className="review-id-img"/>
-            <p className="review-title">{review.title}</p>
-            <p className="review-designer">made by {review.designer}</p>
+            <p className="review-id-title">{review.title}</p>
+            <p className="review-id-designer">made by {review.designer}</p>
             <p>{review.review_body}</p>
-            <div className="reviw-card-id-footer">
-                <p className="review-owner">reviewed by {review.owner}</p>
-                <p className="review-votes">votes: {review.votes}</p>
+            <div className="review-id-card-footer">
+                <p className="review-id-owner">reviewed by {review.owner}</p>
+                <p className="review-id-votes">votes: {review.votes}</p>
             </div>
          </section>
     )
