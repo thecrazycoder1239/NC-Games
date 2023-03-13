@@ -1,9 +1,12 @@
 import './App.css';
+import Header from "./components/header"
+import ShowReviews from "./components/show-reviews"
 
 function App() {
   return (
     <div className="App">
-      <h1>NC-Games</h1>
+      <Header/>
+      <ShowReviews/>
     </div>
   );
 }
