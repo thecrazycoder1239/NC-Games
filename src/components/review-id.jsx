@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react';
 import { getReview } from '../utils/axiosData';
 import { useParams } from 'react-router-dom';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function ReviewId() {
     const [review, setReview] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
     
     const { review_id } = useParams()
 
@@ -11,10 +13,16 @@ export default function ReviewId() {
     useEffect(() => {
         getReview(review_id).then(response => {
             setReview(response.data.review)
+            setIsLoading(false)
         })
     }, []);
 
-    return (
+    const returnItem = isLoading ? (
+        <div className="progress-container">
+        <h2>Loading review...</h2>
+        <CircularProgress size={150} />
+        </div>
+      ) : (
         <section>
             <img src={review.review_img_url} alt="review image" className="review-id-img"/>
             <p className="review-title">{review.title}</p>
@@ -26,4 +34,6 @@ export default function ReviewId() {
             </div>
          </section>
     )
+
+    return <>{returnItem}</>
 }
