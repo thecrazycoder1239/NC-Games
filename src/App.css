@@ -27,6 +27,13 @@
   transition: all 0.2s ease-out;
 }
 
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 .review-img {
     width: 100%;
     height: 35%;
