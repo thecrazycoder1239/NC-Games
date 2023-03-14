@@ -1,6 +1,17 @@
+body {
+    background-color: #E0DFD5;
+    font-family: Arial, Helvetica, sans-serif
+}
+
 .header {
+    font-family: 'Monoton', cursive;
+    color: #313638;
     text-align: center;
     font-size: 2.5rem;
+    background-color: #F06543;
+    font-size: 3rem;
+    margin-top: 0;
+    padding: 1.5rem;
 }
 
 .review-list {
@@ -12,19 +23,27 @@
   list-style-type: none;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;;
+  font-size: 1rem;
 }
 
 .review-card {
 position: relative;
   width: 8rem;
-  box-shadow: 4px 4px 10px black;
+  box-shadow: 4px 4px 10px #313638;
   height: 15rem;
   padding: 0.7rem;
   border-radius: 10px;
-  background-color: white;
+  background-color: #E8E9EB;
   opacity: 0.9;
   transition: all 0.2s ease-out;
+}
+
+.review-card:hover,
+.review-card:focus {
+    background-color: #F09D51;
+    scale: 1.05;
+    box-shadow: 4px 4px 10px #F06543;
+    opacity: 1;
 }
 
 .progress-container {
@@ -89,70 +108,154 @@ position: relative;
 }
 
 .review-id-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    background-color: rgba(49, 54, 56, 0.9);
+    padding: 1rem;
+    color: #F09D51;
+    text-align: left;
+    width: 70vw;
+    position: relative;
+    bottom: 3rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+    padding-bottom: 2rem;
 }
 
 .review-id-img {
     border-radius: 10px;
-    width: 100%;
+    width: 90vw;
+    mask-image: linear-gradient(#FFFF, rgba(0, 0, 0, 0));
 } 
 
-.review-card-id-footer {
-    margin-top: 50px;
-    display: flex;
+.review-id-designer {
+    position: relative;
+    width:70%;
+    left: 1rem;
+    bottom: 6.5rem;
+    color: #E0DFD5;
+    text-align:left;
+}
+
+.review-id-body {
+    position: relative;
+    text-align: center;
+    bottom: 2rem;
+    font-size: 1.3rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
 .review-id-owner {
     width: 40%;
-
+    position:relative;
+    text-align:left;
+    left: 50%;
+    bottom: 2.5rem;
 }
-.review-id-votes {
-    width: 40%;
+
+.review-id-review {
+    background: linear-gradient(#E0DFD5, #F09D51);
+    margin: 0px;
+    position: relative;
+    right: 8px;
+    bottom: 4rem;
+    width: 100vw;
 }
 
 @media only screen and (min-width: 700px) {
 
     .header {
         text-align: center;
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
 
     .review-list {
         margin-top: 4rem;
         gap: 45px;
         font-size: 2rem;
-      }
+    }
       
-      .review-card {
+    .review-card {
         width: 16rem;
-        box-shadow: 8px 8px 20px black;
+        box-shadow: 8px 8px 20px #313638;
         height: 30rem;
         padding: 1.4rem;
         border-radius: 20px;
-      }
+    }
       
-      .review-img {
-          height: 35%;
-      }
+    .review-img {
+        height: 35%;
+    }
       
-      .review-title {
-          top: -3.5%;
-      }
+    .review-title {
+        top: -3.5%;
+    }
       
-      .review-designer {
-          font-size: 1.3rem;
-          height: 60px;
-      }
+    .review-designer {
+        font-size: 1.3rem;
+        height: 60px;
+    }
       
-      .review-owner {
-          font-size: 1.3rem;
-      }
+    .review-owner {
+        font-size: 1.3rem;
+    }
       
-      .review-votes {
-          font-size: 1.7rem;
-      }
+    .review-votes {
+        font-size: 1.7rem;
+    }
 
-      .review-id-card {
-        background-color:aquamarine;
-      }
+    .review-id-card {
+        font-size: 1.5rem;
+    }
+
+    .review-id-title {
+        font-size: 2.5rem;
+        bottom: 7rem;
+    }
+
+    .review-id-designer {
+        bottom: 11.5rem;
+        font-size: 1.3rem;
+
+    }
+    
+    .review-id-body {
+        bottom: 7.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .review-id-owner {
+        bottom: 8rem;
+    }
   }
+
+  @media only screen and (min-width: 870px) {
+
+    .review-id-img {
+        border-radius: 20px;
+        width: 50rem;
+    } 
+
+    .review-id-title {
+        color: #F09D51;
+        text-align: right;
+        width: 50rem;
+        font-size: 3rem;
+        border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+        padding-bottom: 3.5rem;
+        margin-right:0px;
+    }
+
+    .review-id-body {
+        font-size: 2rem;
+    }
+  
+    .review-id-owner,
+    .review-id-designer {
+        font-size: 1.75rem;
+    }
+
+    .review-id-designer {
+        bottom: 12.5rem;
+        margin:0px;
+    }
+}

@@ -27,11 +27,10 @@ export default function ReviewId() {
             <img src={review.review_img_url} alt="review image" className="review-id-img"/>
             <p className="review-id-title">{review.title}</p>
             <p className="review-id-designer">made by {review.designer}</p>
-            <p>{review.review_body}</p>
-            <div className="review-id-card-footer">
-                <p className="review-id-owner">reviewed by {review.owner}</p>
-                <p className="review-id-votes">votes: {review.votes}</p>
-            </div>
+            <section className="review-id-review">
+                <p className="review-id-body">{review.review_body}</p>
+                <p className="review-id-owner">... reviewed by {review.owner}</p>
+            </section>
          </section>
     )
 
