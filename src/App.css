@@ -161,6 +161,10 @@ position: relative;
     width: 100vw;
 }
 
+.comments-background {
+    background-color: #F09D51;
+}
+
 @media only screen and (min-width: 700px) {
 
     .header {
