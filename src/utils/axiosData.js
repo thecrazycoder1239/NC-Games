@@ -21,3 +21,15 @@ export function getCommentsByReview(review_id) {
         return response;
     })
 }
+
+export function getUsers() {
+    return gamesApi.get("/users").then(response => {
+        return response;
+    })
+}
+
+export function patchReview(review_id) {
+    return gamesApi.patch(`/reviews/${review_id}`, { inc_votes: 1 }).then(response => {
+        return response;
+    })
+}

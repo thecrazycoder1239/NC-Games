@@ -2,7 +2,7 @@
 
 export default function ReviewIdComments({comments}) {
 
-    let returnItem 
+    let returnItem = null;
     if (comments.length !== 0){
         returnItem = (
             <ol className="comments-background">
@@ -12,7 +12,7 @@ export default function ReviewIdComments({comments}) {
                     <li key={comment.comment_id} className="comment-wrapper">
                         <p className="comment-author">{comment.author}</p>
                         <p className="comment-body">{comment.body}</p>
-                        <p className="comment-votes">votes = {comment.votes}</p>
+                        <div className="comment-votes">votes = {comment.votes}</div>
                     </li>
                 )
                })}

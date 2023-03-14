@@ -1,3 +1,5 @@
+
+
 export default function ReviewCard({ review }) {
     return (
         <>
@@ -6,7 +8,6 @@ export default function ReviewCard({ review }) {
             <p className="review-designer">made by {review.designer}</p>
             <div className="card-footer">
                 <p className="review-owner">reviewed by {review.owner}</p>
-                <p className="review-votes">votes: {review.votes}</p>
             </div>
         </>
     )

@@ -91,6 +91,7 @@ position: relative;
     left: 0px;
     display: flex;
     justify-content: space-around;
+    visibility: hidden;
 }
 
 .review-owner {
@@ -101,8 +102,9 @@ position: relative;
 }
 
 .review-votes {
-    text-align: right;
+    text-align: left;
     font-size: 1rem;
+    
 }
 
 .link {

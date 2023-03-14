@@ -33,7 +33,7 @@ export default function ReviewIdAndComments() {
         returnItem = (
         <section>
             <ReviewId review={review}/>
-            <ReviewIdComments comments={comments}/>
+            <ReviewIdComments comments={comments} setComments={setComments}/>
         </section>
         ) 
     } else {
