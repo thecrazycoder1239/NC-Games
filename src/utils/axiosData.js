@@ -15,3 +15,9 @@ export function getReview(review_id) {
         return response;
     })
 }
+
+export function getCommentsByReview(review_id) {
+    return gamesApi.get(`/reviews/${review_id}/comments`).then(response => {
+        return response;
+    })
+}
