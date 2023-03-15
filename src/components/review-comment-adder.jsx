@@ -9,8 +9,9 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
     const { loggedUser } = useContext(UsernameContext);
     const [ eligibleForComment, setEligibleForComment ] = useState(true);
     const [ promptToSignIn, setPromptToSignIn] = useState(false);
-    const [ commentBody, setCommentBody ] = useState("")
-    const [ hasCommentBeenAdded, setHasCommentBeenAdded ] = useState(true) 
+    const [ commentBody, setCommentBody ] = useState("");
+    const [ hasCommentBeenAdded, setHasCommentBeenAdded ] = useState(true);
+    const [ commentFailed, setCommentFailed ] = useState(false)
 
     useEffect(()=>{
         if(loggedUser.username === "guest user") {
@@ -28,9 +29,13 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
                 setComments((currentComments) => {
                     setHasCommentBeenAdded(true)
                     setEligibleForComment(true)
+                    setCommentBody("")
                     return [ ...currentComments, commentFromApi.data.comment ]
                 })
-            })
+            }).catch((err => {
+                setHasCommentBeenAdded(true)
+                setCommentFailed(true)
+            }))
         }}>
             <p>Commenting as</p>
             <Link to="/users" className="link">
@@ -39,9 +44,10 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
             <p className="comment-username">{loggedUser.username}</p>
             {promptToSignIn ? <p>please sign in to comment</p> : null}
             <label htmlFor="comment-to-add">comment: </label>
-            <input required value={commentBody} id="comment-to-add" onChange={(event) => {setCommentBody(event.target.value)}}></input>
+            <textarea required value={commentBody} id="comment-to-add" onChange={(event) => {setCommentBody(event.target.value)}}></textarea>
             <button type="submit" disabled={!eligibleForComment}>Comment</button>
             {!hasCommentBeenAdded ? <p>adding comment...</p> : null}
+            {commentFailed ? <p>comment failed to submit, please connect to wifi</p> : null}
         </form>
     )
 }
