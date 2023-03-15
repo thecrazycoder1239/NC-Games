@@ -12,6 +12,7 @@ body {
     margin-top: 0;
     padding: 1.5rem;
     padding-right: 3rem;
+    border-radius: 0.25rem;
 }
 
 .profile-picture {
@@ -204,11 +205,47 @@ position: relative;
     text-align: center;
 }
 
+.log-in {
+    padding: 1rem;
+    background-color: #F09D51;
+    border-radius: 0.25rem;
+    text-align: center;
+    align-items: center;
+}
+
+.log-in-title {
+    color: #313638;
+    border-bottom: 0.2rem solid #313638;
+    width: 30%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.submit-btn {
+    margin: 1rem;
+    background-color: #E0DFD5;
+    border-radius: 0.25rem;
+}
+
+.submit-btn:hover {
+    background-color: #c5c5bc;
+}
+
+#existing-username {
+    border-radius: 0.25rem;
+}
+
+.username-invalid {
+    color:rgb(148, 2, 2)
+}
+
 @media only screen and (min-width: 700px) {
 
     .header {
         text-align: center;
         font-size: 4rem;
+        border-radius: 0.5rem;
     }
 
     .review-list {
@@ -321,5 +358,34 @@ position: relative;
 
     .comments-background {
         bottom: 5.8rem;
+    }
+
+    .profile-picture {
+        position: absolute;
+        top: 1.7rem;
+        left: 3rem;
+        width: 6rem;
+        border: 0.3rem solid #313638;
+    }
+
+    .log-in {
+        padding: 2rem;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+    }
+    
+    .log-in-title {
+        border-bottom: 0.4rem solid #313638;
+    }
+    
+    .submit-btn {
+        margin: 2rem;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+    }
+    
+    #existing-username {
+        border-radius: 0.5rem;
+        font-size: 2rem;
     }
 }
