@@ -253,6 +253,13 @@ position: relative;
     color:rgb(148, 2, 2)
 }
 
+.comment-profile {
+    background-color: #313638;
+    border-radius: 50%;
+    width: 4rem;
+    border: 0.2rem solid #313638;
+}
+
 @media only screen and (min-width: 700px) {
 
     .header {

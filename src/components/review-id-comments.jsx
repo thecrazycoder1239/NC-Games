@@ -1,6 +1,7 @@
 
 
 export default function ReviewIdComments({comments}) {
+    console.log(comments)
 
     let returnItem = null;
     if (comments.length !== 0){
