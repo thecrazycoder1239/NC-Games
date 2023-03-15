@@ -1,20 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { UsernameContext } from "../context/username";
-import { getUsers } from "../utils/axiosData";
 
 
 
-export default function UserSelect() {
+export default function UserSelect({users}) {
     const { setLoggedUser } = useContext(UsernameContext);
     const [ submitUsername, setSubmitUsername] = useState("");
-    const [ users, setUsers ] = useState([]);
     const [ usernameInvalid, setUsernameInvalid ] = useState(false);  
-
-    useEffect(() => {
-        getUsers().then(response => {
-            setUsers(response.data.users)
-        })
-    }, [])
 
 
     return (

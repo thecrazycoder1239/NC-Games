@@ -7,7 +7,7 @@ import {useState, useEffect} from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ReviewCommentAdder from "./review-comment-adder";
 
-export default function ReviewIdAndComments() {
+export default function ReviewIdAndComments({users}) {
     const [commentsIsLoading, setCommentsIsLoading] = useState(true)
     const [reviewIsLoading, setReviewIsLoading] = useState(true)
     const [comments, setComments] = useState([]);
@@ -34,8 +34,8 @@ export default function ReviewIdAndComments() {
         returnItem = (
         <section>
             <ReviewId review={review}/>
-            <ReviewIdComments comments={comments} setComments={setComments}/>
             <ReviewCommentAdder review_id={review_id} setComments={setComments}/>
+            <ReviewIdComments comments={comments} setComments={setComments} users={users}/>
         </section>
         ) 
     } else {

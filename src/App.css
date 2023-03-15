@@ -184,22 +184,36 @@ position: relative;
     right: 8px;
     bottom: 4rem;
     width: 100vw;
+    color: #313638;
+}
+
+.comment-adder-form {
+    position:relative;
+    bottom: 5rem;
+    padding-bottom: 2rem;
+    background: linear-gradient(#F09D51, #F06543);
+    right: 8px;
+    width: 100vw;
+    color: #313638;
+    text-align: center;
 }
 
 .comments-background {
     position:relative;
     bottom: 5.1rem;
-    background-color: #F09D51;
+    background-color: #F06543;
     list-style-type: none;
     padding:0px;
     right: 8px;
     width: 100vw;
     padding-bottom:2rem;
+    margin: 0px;
 }
 
 .comments-title {
     font-size: 2rem;;
     text-align: center;
+    padding-top: 1rem;
     margin:0px;
     color: #313638;
     border-bottom: 0.3rem solid #313638;
@@ -210,12 +224,43 @@ position: relative;
     border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
     margin:1rem;
     padding:0.5rem;
+    padding-bottom:0rem;
+    border: 0.3rem solid #313638;
+    color: #313638;
 }
 
 .no-comment {
     font-size: 1.1rem;;
     padding-top: 1rem;
     text-align: center;
+}
+
+.comment-profile-pic {
+    position: relative;
+    top: 1rem;
+    left: 0.2rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 0.2rem solid #313638;
+}
+
+.comment-author { 
+   position: relative;
+   font-size: 1.5rem;
+   bottom: 3rem;
+   left: 5.5rem;
+   margin: 0px;
+   width: 70%
+}
+
+.comment-body {
+    position:relative;
+    left: 5.5rem;
+    margin: 0px;
+    font-size: 1.3rem;
+    bottom: 2rem;
+    width: 73%;
+    
 }
 
 .log-in {
@@ -345,6 +390,7 @@ position: relative;
     .comment-wrapper {
         font-size: 1.5rem;
         border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+        border: 0.4rem solid #313638;
     }
 
     .comments-background {
@@ -357,6 +403,31 @@ position: relative;
 
     .no-comment {
         font-size: 1.5rem;
+    }
+
+    .comment-profile-pic {
+        position: relative;
+        top: 1rem;
+        left: 0.5rem;
+        width: 5rem;
+        border: 0.3rem solid #313638;
+    }
+    
+    .comment-author { 
+       position: relative;
+       font-size: 1.7rem;
+       bottom: 4.5rem;
+       left: 7.3rem;
+       margin: 0px;
+    }
+    
+    .comment-body {
+        position:relative;
+        margin: 0px;
+        left: 7.3rem;
+        font-size: 1.5rem;
+        bottom: 3.5rem;
+        width: 80%;
     }
   }
 

@@ -21,7 +21,7 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
     }, [])
 
     return (
-        <form onSubmit={(event) => {
+        <form className="comment-adder-form" onSubmit={(event) => {
             event.preventDefault()
             setHasCommentBeenAdded(false)
             setEligibleForComment(false)
@@ -30,14 +30,14 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
                     setHasCommentBeenAdded(true)
                     setEligibleForComment(true)
                     setCommentBody("")
-                    return [ ...currentComments, commentFromApi.data.comment ]
+                    return [ commentFromApi.data.comment , ...currentComments ]
                 })
             }).catch((err => {
                 setHasCommentBeenAdded(true)
                 setCommentFailed(true)
             }))
         }}>
-            <p>Commenting as</p>
+            <p className="commenting-as">Commenting as</p>
             <Link to="/users" className="link">
             <img className="comment-profile" src={loggedUser.avatar_url} alt="profile picture"/>
             </Link>

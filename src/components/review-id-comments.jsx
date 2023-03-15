@@ -1,6 +1,6 @@
 
 
-export default function ReviewIdComments({comments}) {
+export default function ReviewIdComments({comments, users}) {
 
     let returnItem = null;
     if (comments.length !== 0){
@@ -8,11 +8,19 @@ export default function ReviewIdComments({comments}) {
             <ol className="comments-background">
                 <h2 className="comments-title">Comments</h2>
                {comments.map(comment => {
+                let avatarUrl = null
+                users.map(user => {
+                    if(user.username === comment.author) {
+                        avatarUrl = user.avatar_url
+                    }
+                })
+
+
                 return (
                     <li key={comment.comment_id} className="comment-wrapper">
+                        <img className="comment-profile-pic" alt="profile picture" src={avatarUrl}/>
                         <p className="comment-author">{comment.author}</p>
                         <p className="comment-body">{comment.body}</p>
-                        <div className="comment-votes">votes = {comment.votes}</div>
                     </li>
                 )
                })}
