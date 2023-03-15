@@ -86,13 +86,13 @@ position: relative;
 
 .card-footer {
     position: absolute;
-    bottom: 15%;
+    bottom: 9%;
     height: 20px;
     width: 100%;
     left: 0px;
     display: flex;
     justify-content: space-around;
-    visibility: hidden;
+    flex-wrap: wrap;
 }
 
 .review-owner {
@@ -103,9 +103,22 @@ position: relative;
 }
 
 .review-votes {
+    position:relative;
+    bottom: 1rem;
     text-align: left;
     font-size: 1rem;
-    
+}
+
+.vote-error {
+    color: rgb(136, 3, 3);
+    font-size: 0.6rem;
+    text-align: center;
+    position:relative;
+    bottom: 2rem;
+}
+
+.vote-btn {
+    height: 1.5rem;
 }
 
 .link {
@@ -281,6 +294,21 @@ position: relative;
       
     .review-votes {
         font-size: 1.7rem;
+    }
+
+
+    .card-footer {
+        bottom: 10%;
+    }
+
+    .vote-error {
+    font-size: 1.2rem;
+    bottom: 3.6rem;
+    }   
+    
+    .vote-btn {
+       font-size: 1.7rem;
+       height: 2.5rem;
     }
 
     .review-id-card {
