@@ -5,6 +5,7 @@ import { getReview } from "../utils/axiosData";
 import { useParams } from "react-router-dom";
 import {useState, useEffect} from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import ReviewCommentAdder from "./review-comment-adder";
 
 export default function ReviewIdAndComments() {
     const [commentsIsLoading, setCommentsIsLoading] = useState(true)
@@ -34,6 +35,7 @@ export default function ReviewIdAndComments() {
         <section>
             <ReviewId review={review}/>
             <ReviewIdComments comments={comments} setComments={setComments}/>
+            <ReviewCommentAdder review_id={review_id} setComments={setComments}/>
         </section>
         ) 
     } else {

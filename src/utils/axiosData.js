@@ -33,3 +33,9 @@ export function patchReview(review_id) {
         return response;
     })
 }
+
+export function postComment(review_id, loggedUser, commentBody) {
+    return gamesApi.post(`/reviews/${review_id}/comments`, { username: loggedUser.username, body: commentBody}).then(response => {
+        return response;
+    })
+}
