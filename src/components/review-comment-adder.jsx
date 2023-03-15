@@ -35,7 +35,7 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
             <p className="comment-username">{loggedUser.username}</p>
             {!eligibleForComment ? <p>please sign in to comment</p> : null}
             <label htmlFor="comment-to-add">comment: </label>
-            <input value={commentBody} id="comment-to-add" onChange={(event) => {setCommentBody(event.target.value)}}></input>
+            <input required value={commentBody} id="comment-to-add" onChange={(event) => {setCommentBody(event.target.value)}}></input>
             <button type="submit" disabled={!eligibleForComment}>Comment</button>
             {!hasCommentBeenAdded ? <p>adding comment...</p> : null}
         </form>
