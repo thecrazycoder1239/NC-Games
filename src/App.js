@@ -20,9 +20,10 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path="/" element={<ShowReviews/>}></Route>
+        <Route path="/" element={<ShowReviews/>}/>
         <Route path="/reviews/:review_id" element={<ReviewIdAndComments users={users}/>}/>
         <Route path="/users" element={<UserSelect users={users}/>}/>
+        <Route path="/*" element={<p>path not found</p>}/>
       </Routes>
     </div>
   );

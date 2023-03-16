@@ -23,11 +23,15 @@ export default function ShowReviews() {
     const [categories, setCategories] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(boolean)
     const [ categoryDescription, setCategoryDescription ] = useState("")
+    const [error, setError] = useState(false)
     
 
     useEffect(() => {
         getReviews(selectedCategory).then(response => {
             setReviews(response.data.reviews)
+            setIsLoading(false)
+        }).catch((error) => {
+            setError(true)
             setIsLoading(false)
         })
     },[searchParams])
@@ -45,6 +49,10 @@ export default function ShowReviews() {
             }
         })
     }, [searchParams, categories])
+
+    if(error) {
+        return (<p>reviews not found for chosen filters</p>)
+    }
 
     const returnItem = isLoading ? (
     <div className="progress-container">
