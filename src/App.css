@@ -1,6 +1,16 @@
+
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
 body {
-    background-color: #E0DFD5;
-    font-family: Arial, Helvetica, sans-serif
+    background-color: #F09D51;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
 }
 
 .header {
@@ -8,11 +18,35 @@ body {
     color: #313638;
     text-align: right;
     background-color: #F06543;
+    margin: 8px;
+    margin-bottom: 2rem;
     font-size: 2rem;
-    margin-top: 0;
     padding: 1.5rem;
     padding-right: 3rem;
     border-radius: 0.25rem;
+}
+
+.footer {
+    position: relative;
+    top: 8px;
+    width: 100vw;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #313638;
+    color:#F06543;
+    margin-top: auto;
+    padding-bottom: 1rem
+}
+
+.footer-link {
+    text-decoration: none;
+    color:#F09D51;
+    border-bottom: 0.1rem solid #F09D51;
+}
+
+.footer-link:hover{
+    color:#e97f1c;
+    border-bottom: 0.1rem solid #e97f1c;
 }
 
 .profile-picture {
@@ -133,6 +167,7 @@ position: relative;
 }
 
 .review-id-title {
+    margin-left: 8px;
     font-size: 2rem;
     background-color: rgba(49, 54, 56, 0.9);
     padding: 1rem;
@@ -163,25 +198,28 @@ position: relative;
 .review-id-body {
     position: relative;
     text-align: center;
-    bottom: 2rem;
+    bottom: 1rem;
     font-size: 1.3rem;
-    padding-right: 3rem;
-    padding-left: 3rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 0px;
+    margin-top:0px;
 }
 
 .review-id-owner {
-    width: 40%;
+    width: 30%;
     position:relative;
     text-align:left;
     left: 50%;
-    bottom: 2.5rem;
+
+    margin:0px;
+    display:block;
 }
 
 .review-id-review {
-    background: linear-gradient(#E0DFD5, #F09D51);
+    background: #F09D51;
     margin: 0px;
     position: relative;
-    right: 8px;
     bottom: 4rem;
     width: 100vw;
     color: #313638;
@@ -189,9 +227,8 @@ position: relative;
 
 .comment-adder-form {
     position:relative;
-    bottom: 5rem;
+    top: 8px;
     background: linear-gradient(#F09D51, #F06543);
-    right: 8px;
     width: 100vw;
     color: #313638;
 }
@@ -228,7 +265,7 @@ position: relative;
    font-size: 1rem;
    margin-left: 1rem;
    font-family: Arial, Helvetica, sans-serif;
-   width: 90%;
+   width: 91.5%;
    border: 0.15rem solid #313638;
    border-radius: 0.25rem;
    background-color: #E0DFD5;
@@ -238,7 +275,7 @@ position: relative;
     position: relative;
     margin: 0.5rem;
     font-size: 1rem;
-    left: 74%;
+    left: 77.5%;
     bottom: 0.2rem;
     border-radius: 0.25rem;
 }
@@ -260,11 +297,10 @@ position: relative;
 
 .comments-background {
     position:relative;
-    bottom: 5.1rem;
+    top: 8px;
     background-color: #F06543;
     list-style-type: none;
     padding:0px;
-    right: 8px;
     width: 100vw;
     padding-bottom:2rem;
     margin: 0px;
@@ -326,7 +362,8 @@ position: relative;
 
 .log-in {
     padding: 1rem;
-    background-color: #F09D51;
+    margin: 8px;
+    background-color: #F06543;
     border-radius: 0.25rem;
     text-align: center;
     align-items: center;
@@ -433,12 +470,12 @@ position: relative;
     }
     
     .review-id-body {
-        bottom: 7.5rem;
+        bottom: 4.5rem;
         font-size: 1.5rem;
     }
     
     .review-id-owner {
-        bottom: 8rem;
+        bottom: 3rem;
     }
     
     .comment-adder-form {
@@ -475,7 +512,7 @@ position: relative;
     
     .comment-adder-button {
         font-size: 1.4rem;
-        left: 82.8%;
+        left: 81.8%;
         border-radius: 0.5rem;
     }
     

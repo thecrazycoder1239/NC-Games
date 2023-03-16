@@ -35,7 +35,7 @@ export default function ReviewCard({ review, setReviews, review_id }) {
             <p className="review-designer">made by {review.designer}</p>
             </Link>
             <div className="card-footer">
-                <button onClick={onClick} disabled={userVote !== 0 || err || userErr} className="vote-btn">{review.votes} 👍</button>
+                <button onClick={onClick} disabled={userVote !== 0 || err || userErr} className="vote-btn">{review.votes + userVote} 👍</button>
                 {err ? <p className="vote-error">please connect to wifi to vote</p> : null}
             </div>
         </li>

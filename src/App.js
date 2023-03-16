@@ -6,6 +6,7 @@ import ReviewIdAndComments from './components/review-id-wrapper';
 import UserSelect from './components/user-select';
 import { getUsers } from "./utils/axiosData";
 import { useState, useEffect } from "react";
+import Footer from "./components/footer";
 
 function App() {
   const [ users, setUsers ] = useState([]);
@@ -25,6 +26,7 @@ function App() {
         <Route path="/users" element={<UserSelect users={users}/>}/>
         <Route path="/*" element={<p>path not found</p>}/>
       </Routes>
+      <Footer />
     </div>
   );
 }
