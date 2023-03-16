@@ -37,17 +37,16 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
                 setCommentFailed(true)
             }))
         }}>
-            <p className="commenting-as">Commenting as</p>
+            <p className="commenting-as">Commenting as...</p>
+            <p className="comment-adder-username">{loggedUser.username}</p>
             <Link to="/users" className="link">
-            <img className="comment-profile" src={loggedUser.avatar_url} alt="profile picture"/>
+            <img className="comment-adder-profile" src={loggedUser.avatar_url} alt="profile picture"/>
             </Link>
-            <p className="comment-username">{loggedUser.username}</p>
-            {promptToSignIn ? <p>please sign in to comment</p> : null}
-            <label htmlFor="comment-to-add">comment: </label>
-            <textarea required value={commentBody} id="comment-to-add" onChange={(event) => {setCommentBody(event.target.value)}}></textarea>
-            <button type="submit" disabled={!eligibleForComment}>Comment</button>
-            {!hasCommentBeenAdded ? <p>adding comment...</p> : null}
-            {commentFailed ? <p>comment failed to submit, please connect to wifi</p> : null}
+            <textarea placeholder="comment..." required value={commentBody} id="comment-adder-input" onChange={(event) => {setCommentBody(event.target.value)}}></textarea>
+            <button className="comment-adder-button" type="submit" disabled={!eligibleForComment}>Comment</button>
+            {promptToSignIn ? <p className="comment-error">please <Link to="/users" id="sign-in-link">sign in</Link> to comment</p> : null}
+            {!hasCommentBeenAdded ? <p className="comment-error">adding comment...</p> : null}
+            {commentFailed ? <p className="comment-error">comment failed to submit, please connect to wifi</p> : null}
         </form>
     )
 }
