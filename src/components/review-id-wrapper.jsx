@@ -13,7 +13,6 @@ export default function ReviewIdAndComments({users}) {
     const [comments, setComments] = useState([]);
     const [review, setReview] = useState({})
     const {review_id} = useParams();
-    const [hasBeenDeleted, setHasBeenDeleted] = useState(null)
     let returnItem = null;
     
     useEffect(() => {
@@ -21,7 +20,7 @@ export default function ReviewIdAndComments({users}) {
             setComments(response.data.comments)
             setCommentsIsLoading(false)
         })
-    }, [hasBeenDeleted])
+    }, [])
 
     useEffect(() => {
         getReview(review_id).then(response => {
@@ -36,7 +35,7 @@ export default function ReviewIdAndComments({users}) {
         <section>
             <ReviewId review={review}/>
             <ReviewCommentAdder review_id={review_id} setComments={setComments}/>
-            <ReviewIdComments comments={comments} setComments={setComments} users={users} setHasBeenDeleted={setHasBeenDeleted}/>
+            <ReviewIdComments comments={comments} setComments={setComments} users={users}/>
         </section>
         ) 
     } else {

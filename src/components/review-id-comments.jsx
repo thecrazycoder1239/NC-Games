@@ -1,7 +1,7 @@
 import CommentTemplate from "./comment-template";
 
 
-export default function ReviewIdComments({comments, users, setHasBeenDeleted}) {
+export default function ReviewIdComments({comments, users, setComments}) {
 
     let returnItem = null;
     if (comments.length !== 0){
@@ -17,7 +17,7 @@ export default function ReviewIdComments({comments, users, setHasBeenDeleted}) {
                 })
 
                 return (
-                    <CommentTemplate key={comment.comment_id} comment={comment} avatarUrl={avatarUrl} setHasBeenDeleted={setHasBeenDeleted}/>
+                    <CommentTemplate key={comment.comment_id} comment={comment} avatarUrl={avatarUrl} setComments={setComments}/>
                 )
                })}
             </ol>
