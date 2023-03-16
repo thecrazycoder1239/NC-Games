@@ -4,8 +4,16 @@ const gamesApi = axios.create({
     baseURL: "https://my-board-game-database.onrender.com/api"
 })
 
-export function getReviews() {
-    return gamesApi.get("/reviews").then(response => {
+export function getReviews(category) {
+    let maybeUndefined = category
+    if(category === "all reviews") {
+        maybeUndefined = undefined
+    }
+
+    return gamesApi.get("/reviews", {
+        params: {
+            "category": maybeUndefined
+        }}).then(response => {
         return response;
     })
 }
@@ -36,6 +44,12 @@ export function patchReview(review_id) {
 
 export function postComment(review_id, loggedUser, commentBody) {
     return gamesApi.post(`/reviews/${review_id}/comments`, { username: loggedUser.username, body: commentBody}).then(response => {
+        return response;
+    })
+}
+
+export function getCategories() {
+    return gamesApi.get("/categories").then(response => {
         return response;
     })
 }
