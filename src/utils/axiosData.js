@@ -4,15 +4,32 @@ const gamesApi = axios.create({
     baseURL: "https://my-board-game-database.onrender.com/api"
 })
 
-export function getReviews(category) {
-    let maybeUndefined = category
+export function getReviews(category, sort_by, order) {
+    let maybeUndefinedCategory = category
+    let maybeUndefinedSortBy = sort_by
+    let maybeUndefinedOrderBy = order
+
     if(category === "all reviews") {
-        maybeUndefined = undefined
+        maybeUndefinedCategory = undefined
+    }
+
+    if(sort_by === "sort by") {
+        maybeUndefinedSortBy = undefined
+    }
+
+    if(order === "order by") {
+        maybeUndefinedOrderBy = undefined
+    }
+
+    if(sort_by === 'comment_count') {
+        maybeUndefinedSortBy = undefined
     }
 
     return gamesApi.get("/reviews", {
         params: {
-            "category": maybeUndefined
+            "category": maybeUndefinedCategory,
+            "sort_by": maybeUndefinedSortBy,
+            "order_by": maybeUndefinedOrderBy
         }}).then(response => {
         return response;
     })

@@ -10,10 +10,12 @@ export default function ShowReviews() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const categoryQuery = searchParams.get('category')
+    const sortByQuery = searchParams.get('sort_by')
+    const orderByQuery = searchParams.get('order')
 
     let boolean = false;
 
-    if(categoryQuery !== undefined) {
+    if(categoryQuery !== undefined && sortByQuery !== undefined) {
         boolean = true; 
     }
 
@@ -22,11 +24,12 @@ export default function ShowReviews() {
     const [selectedCategory, setSelectedCategory] = useState(categoryQuery)
     const [categories, setCategories] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(boolean)
-    const [ categoryDescription, setCategoryDescription ] = useState("")
+    const [categoryDescription, setCategoryDescription] = useState("")
+    const [selectedSortBy, setSelectedSortBy] = useState(sortByQuery)
+    const [selectedOrderBy, setSelectedOrderBy] = useState(orderByQuery)
     
-
     useEffect(() => {
-        getReviews(selectedCategory).then(response => {
+        getReviews(selectedCategory, selectedSortBy, selectedOrderBy).then(response => {
             setReviews(response.data.reviews)
             setIsLoading(false)
         })
@@ -46,6 +49,19 @@ export default function ShowReviews() {
         })
     }, [searchParams, categories])
 
+
+   if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
+        reviews.sort((a, b) => {
+            return a.comment_count - b.comment_count
+        })
+   } else if (selectedOrderBy === "comment_count" && selectedSortBy === 'desc') {
+        reviews.sort((a, b) => {
+            return b.comment_count - a.comment_count
+    })
+   }
+
+   console.log(reviews)
+
     const returnItem = isLoading ? (
     <div className="progress-container">
     <h2>Loading reviews...</h2>
@@ -57,22 +73,38 @@ export default function ShowReviews() {
         event.preventDefault()
         const newParams = new URLSearchParams(searchParams);
         newParams.set("category", selectedCategory)
+        newParams.set("sort_by", selectedSortBy)
+        newParams.set("order", selectedOrderBy)
         setSearchParams(newParams)
         setIsLoading(true)
         setHasSubmitted(true)
         setCategoryDescription("")
     }}>
-        <p>category: </p>
         <select id="category-selector" onChange={(event) => {
                 setSelectedCategory(event.target.value)
         }}>
-            {!hasSubmitted ? <option key="all" value={undefined}>all reviews</option> : <option key={selectedCategory} value={selectedCategory}>{selectedCategory}</option>}
+            <option value={undefined} key="category">category</option>
             {categories.map(category => {
                 return (
                     <option key={category.slug} value={category.slug}>{category.slug}</option>
                 )
             })}
             {hasSubmitted ? <option key="all" value={undefined}>all reviews</option> : null}
+        </select>
+        <select id="sort-by-selector" onChange={(event) => {
+                setSelectedSortBy(event.target.value)
+        }}>
+            <option key ="sort-by" value={undefined}>sort by</option>
+            <option key="date" value={"created_at"}>date</option>
+            <option key="votes" value={"votes"}>votes</option>
+            <option key="comment-count" value={"comment_count"}>comment count</option>
+        </select>
+        <select id="order-by-selector" onChange={(event) => {
+                setSelectedOrderBy(event.target.value)
+        }}>
+            <option key ="order-by" value={undefined}>order by</option>
+            <option key="acs" value="asc">ascending</option>
+            <option key="desc" value="desc">descending</option>
         </select>
         <button type="submit">search</button>
     </form>
