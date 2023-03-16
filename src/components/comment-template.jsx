@@ -54,22 +54,24 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
         <img className="comment-profile-pic" alt="profile picture" src={avatarUrl}/>
         <p className="comment-author">{comment.author}</p>
         <p className="comment-body">{comment.body}</p>
-        <p className="comment-date">{timePasted}</p>
-        {loggedUser.username === comment.author ? <button disabled={deletingComment} className="comment-delete" onClick={() => {
-        setDeletingComment(true)
-        deleteYourComments(comment.comment_id).then(response => {
-            setComments((currentComments) => {
-                let finalArrayOfComments = []
-                currentComments.map(commentToSend => {
-                    if (commentToSend.comment_id !== comment.comment_id) {
-                        finalArrayOfComments.push(commentToSend)
-                    }
-                }) 
-                return finalArrayOfComments;
+        <div className="comment-footer">
+            <p className="comment-date">{timePasted}</p>
+            {loggedUser.username === comment.author ? <button disabled={deletingComment} className="comment-delete" onClick={() => {
+            setDeletingComment(true)
+            deleteYourComments(comment.comment_id).then(response => {
+                setComments((currentComments) => {
+                    let finalArrayOfComments = []
+                    currentComments.map(commentToSend => {
+                        if (commentToSend.comment_id !== comment.comment_id) {
+                            finalArrayOfComments.push(commentToSend)
+                        }
+                    }) 
+                    return finalArrayOfComments;
+                })
+                setDeletingComment(false)
             })
-            setDeletingComment(false)
-        })
     }} class="comment-remover-btn">delete comment</button> : null}
+    </div>
         {deletingComment ? <p>deleting comment...</p> : null}
     </li>
     )

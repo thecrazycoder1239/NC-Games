@@ -345,11 +345,15 @@ position: relative;
 }
 
 .comment-remover-btn {
-    position: relative;
     font-size: 1rem;
-    left: 68.5%;
-    bottom: 7.4rem;
+    margin: 0.7rem;
     border-radius: 0.25rem;
+}
+
+.comment-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
 }
 
 .comment-error {
@@ -683,6 +687,16 @@ position: relative;
         bottom: 3.5rem;
         width: 80%;
     }
+
+    .comment-remover-btn {
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+    }
+    
+    .comment-date{
+        font-size: 1.5rem;
+    }
+    
   }
 
   @media only screen and (min-width: 870px) {

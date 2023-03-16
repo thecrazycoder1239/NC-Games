@@ -26,8 +26,8 @@ export default function ReviewIdComments({comments, users, setComments}) {
         returnItem = (
             <ol className="comments-background">
                 <h2 className="comments-title">Comments</h2>
-                <li className="no-comment" key="no-comments">There are currently no comments on this review!</li>
-                <p className="no-comment">Feel free to change this and add one below</p>
+                <li className="no-comment" key="no-comments">There are currently no comments on this review</li>
+                <p className="no-comment">Feel free to be the first!</p>
             </ol>
         )
     }
