@@ -18,13 +18,12 @@ body {
     bottom: 1.4rem;
     font-family: 'Monoton', cursive;
     color: #313638;
-    text-align: right;
+    text-align: left;
     background-color: #F06543;
-    margin-bottom: 2rem;
     font-size: 2rem;
     padding: 1.5rem;
     padding-right: 3rem;
-    margin-bottom: 0rem;;
+    margin-bottom: 0rem;
 }
 
 .footer {
@@ -53,7 +52,7 @@ body {
 .profile-picture {
     position: absolute;
     top: 0.8rem;
-    left: 1.5rem;
+    right: 1.5rem;
     width: 4rem;
     border: 0.2rem solid #313638;
     border-radius: 50%;
@@ -302,7 +301,7 @@ position: relative;
 .comment-adder-profile {
     position: relative;
     left: 4%;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.6rem;
     background-color: #313638;
     border-radius: 50%;
     width: 4rem;
@@ -341,8 +340,16 @@ position: relative;
     position: relative;
     margin: 0.5rem;
     font-size: 1rem;
-    left: 77.5%;
+    left: 74.5%;
     bottom: 0.2rem;
+    border-radius: 0.25rem;
+}
+
+.comment-remover-btn {
+    position: relative;
+    font-size: 1rem;
+    left: 68.5%;
+    bottom: 7.4rem;
     border-radius: 0.25rem;
 }
 
@@ -620,6 +627,13 @@ position: relative;
         left: 81.8%;
         border-radius: 0.5rem;
     }
+
+    .comment-remover-btn {
+        font-size: 1.4rem;
+        left: 74%;
+        bottom: 8.9rem;
+        border-radius: 0.5rem;
+    }
     
     .comment-error {
         font-size: 1.1rem;;
@@ -718,7 +732,7 @@ position: relative;
     .profile-picture {
         position: absolute;
         top: 1.1rem;
-        left: 3rem;
+        right: 3rem;
         width: 6rem;
         border: 0.3rem solid #313638;
     }

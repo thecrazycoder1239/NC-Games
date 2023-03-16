@@ -27,7 +27,7 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
             })
             setDeletingComment(false)
         })
-    }}>delete comment</button> : null}
+    }} class="comment-remover-btn">delete comment</button> : null}
         {deletingComment ? <p>deleting comment...</p> : null}
     </li>
     )
