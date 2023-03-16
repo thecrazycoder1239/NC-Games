@@ -1,6 +1,7 @@
+import CommentTemplate from "./comment-template";
 
 
-export default function ReviewIdComments({comments, users}) {
+export default function ReviewIdComments({comments, users, setHasBeenDeleted}) {
 
     let returnItem = null;
     if (comments.length !== 0){
@@ -15,13 +16,8 @@ export default function ReviewIdComments({comments, users}) {
                     }
                 })
 
-
                 return (
-                    <li key={comment.comment_id} className="comment-wrapper">
-                        <img className="comment-profile-pic" alt="profile picture" src={avatarUrl}/>
-                        <p className="comment-author">{comment.author}</p>
-                        <p className="comment-body">{comment.body}</p>
-                    </li>
+                    <CommentTemplate key={comment.comment_id} comment={comment} avatarUrl={avatarUrl} setHasBeenDeleted={setHasBeenDeleted}/>
                 )
                })}
             </ol>

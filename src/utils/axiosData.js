@@ -53,3 +53,9 @@ export function getCategories() {
         return response;
     })
 }
+
+export function deleteYourComments(comment_id) {
+    return gamesApi.delete(`/comments/${comment_id}`).then(response => {
+        return response;
+    })
+}
