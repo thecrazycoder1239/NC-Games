@@ -35,8 +35,11 @@ Hello there, weary traveller!
 ## Technologies
 
 * react
+* react-dom
+* react-router-dom
 * css
 * axios
+* dayjs
 * Git and GitHub
 * Command Line
 * Netlify

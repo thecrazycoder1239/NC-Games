@@ -128,7 +128,7 @@ body {
   margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   list-style-type: none;
   justify-content: center;
   align-items: center;
@@ -137,21 +137,20 @@ body {
 
 .review-card {
 position: relative;
-  width: 8rem;
+  width: 8.8rem;
   box-shadow: 4px 4px 10px #313638;
   height: 15rem;
-  padding: 0.7rem;
   border-radius: 10px;
-  background-color: #E8E9EB;
+  background-color: #E0DFD5;
   opacity: 0.9;
   transition: all 0.2s ease-out;
 }
 
 .review-card:hover,
 .review-card:focus {
-    background-color: #F09D51;
+    background-color: #e97f1c;
     scale: 1.05;
-    box-shadow: 4px 4px 10px #F06543;
+    box-shadow: 4px 4px 10px #e97f1c;
     opacity: 1;
 }
 
@@ -163,7 +162,7 @@ position: relative;
   }
 
 .review-img {
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 25%;
     width: 100%;
     height: 35%;
 }
