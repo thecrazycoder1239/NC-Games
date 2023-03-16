@@ -49,6 +49,19 @@ export default function ShowReviews() {
         })
     }, [searchParams, categories])
 
+
+   if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
+        reviews.sort((a, b) => {
+            return a.comment_count - b.comment_count
+        })
+   } else if (selectedOrderBy === "comment_count" && selectedSortBy === 'desc') {
+        reviews.sort((a, b) => {
+            return b.comment_count - a.comment_count
+    })
+   }
+
+   console.log(reviews)
+
     const returnItem = isLoading ? (
     <div className="progress-container">
     <h2>Loading reviews...</h2>
@@ -84,7 +97,7 @@ export default function ShowReviews() {
             <option key ="sort-by" value={undefined}>sort by</option>
             <option key="date" value={"created_at"}>date</option>
             <option key="votes" value={"votes"}>votes</option>
-            <option key="title" value={"title"}>title</option>
+            <option key="comment-count" value={"comment_count"}>comment count</option>
         </select>
         <select id="order-by-selector" onChange={(event) => {
                 setSelectedOrderBy(event.target.value)

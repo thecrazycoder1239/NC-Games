@@ -21,7 +21,9 @@ export function getReviews(category, sort_by, order) {
         maybeUndefinedOrderBy = undefined
     }
 
-    console.log(maybeUndefinedOrderBy)
+    if(sort_by === 'comment_count') {
+        maybeUndefinedSortBy = undefined
+    }
 
     return gamesApi.get("/reviews", {
         params: {
