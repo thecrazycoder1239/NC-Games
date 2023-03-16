@@ -1,10 +1,14 @@
 import { patchReview } from "../utils/axiosData";
 import { Link } from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useState, useContext, useEffect} from "react";
+import { UsernameContext } from "../context/username";
 
 export default function ReviewCard({ review, setReviews, review_id }) {
     const [err, setErr] = useState(false);
+    const [userErr, setUserErr] = useState(false);
     const [userVote, setUserVote] = useState(0);
+    const { loggedUser } = useContext(UsernameContext)
+    
     
     const onClick = () => {
         setErr(false);
@@ -15,6 +19,14 @@ export default function ReviewCard({ review, setReviews, review_id }) {
         })
     }
 
+    useEffect(() => {
+        if(loggedUser.username === "guest user") {
+            setUserErr(true)
+        } else if(loggedUser.username !== "guest user") {
+            setUserErr(false)
+        }
+    }, [])
+
     return (
         <li className="review-card">
             <Link to={`/reviews/${review.review_id}`} className="link">
@@ -23,8 +35,7 @@ export default function ReviewCard({ review, setReviews, review_id }) {
             <p className="review-designer">made by {review.designer}</p>
             </Link>
             <div className="card-footer">
-                <p className="review-votes">votes: {review.votes + userVote}</p>
-                <button onClick={onClick} disabled={userVote !== 0} className="vote-btn">vote</button>
+                <button onClick={onClick} disabled={userVote !== 0 || err || userErr} className="vote-btn">{review.votes} 👍</button>
                 {err ? <p className="vote-error">please connect to wifi to vote</p> : null}
             </div>
         </li>
