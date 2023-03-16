@@ -34,7 +34,7 @@ export default function ReviewIdAndComments({users}) {
     }, []);
 
     if(error) {
-        return (<p>invalid review id</p>)
+        return (<p className="search-error">invalid review id</p>)
     }
 
     if (commentsIsLoading === false && reviewIsLoading === false) { 

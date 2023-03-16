@@ -55,7 +55,7 @@ export default function ShowReviews() {
 
 
     if(error) {
-        return (<p>reviews not found for chosen filters</p>)
+        return (<p className="search-error">reviews not found for chosen filters</p>)
     }
 
    if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
@@ -85,7 +85,7 @@ export default function ShowReviews() {
         setIsLoading(true)
         setHasSubmitted(true)
         setCategoryDescription("")
-    }}>
+    }} className="search-form">
         <select id="category-selector" onChange={(event) => {
                 setSelectedCategory(event.target.value)
         }}>
@@ -112,9 +112,9 @@ export default function ShowReviews() {
             <option key="acs" value="asc">ascending</option>
             <option key="desc" value="desc">descending</option>
         </select>
-        <button type="submit">search</button>
+        <button class="search-btn" type="submit">search</button>
     </form>
-    <p>{categoryDescription}</p>
+    {categoryDescription !== "" ? <p class="category-description">{categoryDescription}</p> : null}
         <ol className="review-list">
             {
             reviews.map(review => {

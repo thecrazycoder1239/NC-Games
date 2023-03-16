@@ -14,16 +14,17 @@ body {
 }
 
 .header {
+    position: relative;
+    bottom: 1.4rem;
     font-family: 'Monoton', cursive;
     color: #313638;
     text-align: right;
     background-color: #F06543;
-    margin: 8px;
     margin-bottom: 2rem;
     font-size: 2rem;
     padding: 1.5rem;
     padding-right: 3rem;
-    border-radius: 0.25rem;
+    margin-bottom: 0rem;;
 }
 
 .footer {
@@ -51,14 +52,79 @@ body {
 
 .profile-picture {
     position: absolute;
-    top: 1.3rem;
+    top: 0.8rem;
     left: 1.5rem;
     width: 4rem;
     border: 0.2rem solid #313638;
     border-radius: 50%;
 }
 
+.search-form {
+    display: flex;
+    gap: 0.8rem;
+    position: relative;
+    left: 24px;
+    background-color: #F06543;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 0.2rem solid #313638;
+    margin-bottom: 1rem;
+}   
+
+#sort-by-selector {
+    border-radius: 0.25rem;
+    background-color: #E0DFD5;
+    font-size: 0.5rem;
+}
+
+#category-selector {
+    border-radius: 0.25rem;
+    background-color: #E0DFD5;
+    font-size: 0.5rem;
+}
+
+#order-by-selector {
+    border-radius: 0.25rem;
+    background-color: #E0DFD5;
+    font-size: 0.5rem;
+}
+
+.search-btn {
+    margin-left: 0.4rem;
+    background-color: #E0DFD5;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.search-error {
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #F06543;
+    width: 50%;
+    left: 20%;
+    padding: 5%;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #313638;
+}
+
+.category-description {
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #F06543;
+    width: 90%;
+    right: 2%;
+    padding: 2%;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #313638;
+    margin: 0rem;
+    margin-bottom: 1rem;
+}
+
 .review-list {
+  position: relative;
+  bottom: 2rem;
   padding-left: 0px;
   margin-top: 2rem;
   display: flex;
@@ -367,6 +433,7 @@ position: relative;
     border-radius: 0.25rem;
     text-align: center;
     align-items: center;
+    border: 0.2rem solid #313638;
 }
 
 .log-in-title {
@@ -399,9 +466,47 @@ position: relative;
 @media only screen and (min-width: 700px) {
 
     .header {
+        position: relative;
+        bottom: 2.7rem;
         text-align: center;
         font-size: 4rem;
+    }
+
+    .search-form {
+        gap: 1rem;
         border-radius: 0.5rem;
+        padding: 1.5rem;
+    }   
+    
+    #sort-by-selector {
+        border-radius: 0.5rem;
+        font-size: 1.3rem;
+    }
+    
+    #category-selector {
+        border-radius: 0.5rem;
+        font-size: 1.3rem;
+    }
+    
+    #order-by-selector {
+        border-radius: 0.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .search-btn {
+        margin-left: 0.8rem;
+        border-radius: 0.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .search-error {
+        font-size: 2rem;
+        left: 20%;
+        padding: 3%;
+    }
+
+    .category-description {
+        font-size: 1.3rem;
     }
 
     .review-list {
@@ -612,7 +717,7 @@ position: relative;
 
     .profile-picture {
         position: absolute;
-        top: 1.7rem;
+        top: 1.1rem;
         left: 3rem;
         width: 6rem;
         border: 0.3rem solid #313638;
