@@ -17,7 +17,6 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
         setDeletingComment(true)
         deleteYourComments(comment.comment_id).then(response => {
             setComments((currentComments) => {
-                console.log(currentComments)
                 let finalArrayOfComments = []
                 currentComments.map(commentToSend => {
                     if (commentToSend.comment_id !== comment.comment_id) {
