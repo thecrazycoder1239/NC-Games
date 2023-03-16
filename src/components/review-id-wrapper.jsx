@@ -12,6 +12,7 @@ export default function ReviewIdAndComments({users}) {
     const [reviewIsLoading, setReviewIsLoading] = useState(true)
     const [comments, setComments] = useState([]);
     const [review, setReview] = useState({})
+    const [error, setError] = useState(false)
     const {review_id} = useParams();
     let returnItem = null;
     
@@ -26,9 +27,15 @@ export default function ReviewIdAndComments({users}) {
         getReview(review_id).then(response => {
             setReview(response.data.review)
             setReviewIsLoading(false)
+        }).catch(() => {
+            setError(true)
+            setReviewIsLoading(false)
         })
     }, []);
 
+    if(error) {
+        return (<p>invalid review id</p>)
+    }
 
     if (commentsIsLoading === false && reviewIsLoading === false) { 
         returnItem = (

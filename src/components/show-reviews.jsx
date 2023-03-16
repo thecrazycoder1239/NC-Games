@@ -24,13 +24,17 @@ export default function ShowReviews() {
     const [selectedCategory, setSelectedCategory] = useState(categoryQuery)
     const [categories, setCategories] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(boolean)
+    const [error, setError] = useState(false)
     const [categoryDescription, setCategoryDescription] = useState("")
     const [selectedSortBy, setSelectedSortBy] = useState(sortByQuery)
     const [selectedOrderBy, setSelectedOrderBy] = useState(orderByQuery)
-    
+
     useEffect(() => {
         getReviews(selectedCategory, selectedSortBy, selectedOrderBy).then(response => {
             setReviews(response.data.reviews)
+            setIsLoading(false)
+        }).catch((error) => {
+            setError(true)
             setIsLoading(false)
         })
     },[searchParams])
@@ -50,6 +54,10 @@ export default function ShowReviews() {
     }, [searchParams, categories])
 
 
+    if(error) {
+        return (<p>reviews not found for chosen filters</p>)
+    }
+
    if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
         reviews.sort((a, b) => {
             return a.comment_count - b.comment_count
@@ -59,8 +67,6 @@ export default function ShowReviews() {
             return b.comment_count - a.comment_count
     })
    }
-
-   console.log(reviews)
 
     const returnItem = isLoading ? (
     <div className="progress-container">
