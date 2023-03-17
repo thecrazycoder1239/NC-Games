@@ -11,7 +11,7 @@ export default function Header() {
                 <h1 className="header">NC-Games</h1>
             </Link>
             <Link to="/users" className="link">
-                <img className="profile-picture" src={loggedUser.avatar_url}alt="profile picture"/>
+                <img className="profile" src={loggedUser.avatar_url}alt="profile picture"/>
             </Link>
         </>
     )

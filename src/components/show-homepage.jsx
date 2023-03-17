@@ -37,14 +37,14 @@ export default function Homepage() {
         if(loggedUser.username !== 'guest user') {
             setHasSignedIn(true)
         }
-    }, [])
+    }, [loggedUser.username])
 
     return (
     <>
         {!hasSignedIn ? <p className="welcome-message">Hello there! Just here for a browse? Feel free, but consider <Link to="/users" id="sign-in-link">signing in</Link> to like and comment on our board game reviews. </p> : <p className="welcome-message">Welcome back {loggedUser.name}!<br/> Browse, comment on and like our reviews to your hearts content</p>}
 
         <Link to={`/reviews/${mostRecentReview.review_id}`} className="most-recent-review">
-            <img src={mostRecentReview.review_img_url} className="most-recent-review-img"/>
+            <img src={mostRecentReview.review_img_url} className="most-recent-review"/>
             <p className="check-out-this-review">check out our most recent review...</p>
             <p className="most-recent-review-title">
             {mostRecentReview.title}</p>

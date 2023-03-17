@@ -51,7 +51,7 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
 
     return (
     <li className="comment-wrapper">
-        <img className="comment-profile-pic" alt="profile picture" src={avatarUrl}/>
+        <img className="comment-profile-pic" alt="profile" src={avatarUrl}/>
         <p className="comment-author">{comment.author}</p>
         <p className="comment-body">{comment.body}</p>
         <div className="comment-footer">
@@ -65,6 +65,7 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
                         if (commentToSend.comment_id !== comment.comment_id) {
                             finalArrayOfComments.push(commentToSend)
                         }
+                        return null;
                     }) 
                     return finalArrayOfComments;
                 })

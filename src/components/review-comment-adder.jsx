@@ -18,7 +18,7 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
             setEligibleForComment(false);
             setPromptToSignIn(true);
         }
-    }, [])
+    }, [loggedUser.username])
 
     return (
         <form className="comment-adder-form" onSubmit={(event) => {
@@ -40,7 +40,7 @@ export default function ReviewCommentAdder({ review_id, setComments }) {
             <p className="commenting-as">Commenting as...</p>
             <p className="comment-adder-username">{loggedUser.username}</p>
             <Link to="/users" className="link">
-            <img className="comment-adder-profile" src={loggedUser.avatar_url} alt="profile picture"/>
+            <img className="comment-adder-profile" src={loggedUser.avatar_url} alt="profile"/>
             </Link>
             <textarea placeholder="comment..." required value={commentBody} id="comment-adder-input" onChange={(event) => {setCommentBody(event.target.value)}}></textarea>
             <button className="comment-adder-button" type="submit" disabled={!eligibleForComment}>Comment</button>

@@ -35,7 +35,7 @@ export default function ReviewCard({ review }) {
         } else if(loggedUser.username !== "guest user") {
             setUserErr(false)
         }
-    }, [])
+    }, [loggedUser.username])
 
     let today = dayjs();
     let then = dayjs(review.created_at);
@@ -82,7 +82,7 @@ export default function ReviewCard({ review }) {
     return (
         <li className="review-card">
             <Link to={`/reviews/${review.review_id}`} className="link">
-            <img src={review.review_img_url} alt="review image" className="review-img"/>
+            <img src={review.review_img_url} alt="review" className="review-img"/>
             <p className="review-title">{review.title}</p>
             <div className="review-info">
             {err ? <p className="vote-error">please connect to wifi to vote</p> : null}

@@ -22,6 +22,7 @@ export default function UserSelect({users}) {
                     });
                     isTrueOrFalse = false
                 }
+                return null;
             })
             setUsernameInvalid(isTrueOrFalse)
         }} className="log-in">

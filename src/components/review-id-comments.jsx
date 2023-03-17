@@ -14,6 +14,7 @@ export default function ReviewIdComments({comments, users, setComments}) {
                     if(user.username === comment.author) {
                         avatarUrl = user.avatar_url
                     }
+                    return null;
                 })
 
                 return (

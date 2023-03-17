@@ -21,7 +21,7 @@ export default function ReviewIdAndComments({users}) {
             setComments(response.data.comments)
             setCommentsIsLoading(false)
         })
-    }, [])
+    }, [review_id])
 
     useEffect(() => {
         getReview(review_id).then(response => {
@@ -31,7 +31,7 @@ export default function ReviewIdAndComments({users}) {
             setError(true)
             setReviewIsLoading(false)
         })
-    }, []);
+    }, [review_id]);
 
     if(error) {
         return (<p className="search-error">invalid review id</p>)

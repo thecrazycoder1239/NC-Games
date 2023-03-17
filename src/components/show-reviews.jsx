@@ -37,7 +37,7 @@ export default function ShowReviews() {
             setError(true)
             setIsLoading(false)
         })
-    },[searchParams])
+    },[searchParams, selectedOrderBy, selectedSortBy, selectedCategory])
 
     useEffect(() => {
         getCategories().then(response => {
@@ -50,8 +50,9 @@ export default function ShowReviews() {
             if(category.slug === selectedCategory) {
                 setCategoryDescription(category.description)
             }
+            return null;
         })
-    }, [searchParams, categories])
+    }, [searchParams, categories, selectedCategory])
 
 
     if(error) {
