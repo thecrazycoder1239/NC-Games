@@ -34,7 +34,7 @@ export default function UserSelect({users}) {
             <button className="submit-btn" type="submit">Go!</button>
             {usernameInvalid ? <p className="username-invalid">could not find existing username, please try again!</p> : null}
         </form>
-            <p className="log-in">more existing usernames: <br/>cooljmessy, tickle122, grumpy19 ...</p>
+            <p className="log-in"> some existing usernames you can choose from: <br/>cooljmessy, tickle122, grumpy19 ...</p>
         </>
     )
 }
