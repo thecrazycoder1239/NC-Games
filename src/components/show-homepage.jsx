@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { UsernameContext } from "../context/username";
 import { getReviews } from "../utils/axiosData";
 import ReviewCard from "./review-card";
+import CircularProgress from "@mui/material/CircularProgress";
 
 
 export default function Homepage() {
@@ -11,11 +12,13 @@ export default function Homepage() {
     const [popularReviews, setPopularReviews] = useState([])
     const [trendyReviews, setTrendyReviews] = useState([])
     const [mostRecentReview, setMostRecentReview] = useState("")
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getReviews().then(response => {
             const reviews = response.data.reviews;
             setMostRecentReview(reviews[0])
+            setIsLoading(false)
         })
     }, [])
 
@@ -39,7 +42,12 @@ export default function Homepage() {
         }
     }, [loggedUser.username])
 
-    return (
+    const returnItem = isLoading ? (
+        <div className="progress-container">
+        <h2>Loading reviews...</h2>
+        <CircularProgress size={150} />
+        </div>
+      ) : (
     <>
         {!hasSignedIn ? <p className="welcome-message">Hello there! Just here for a browse? Feel free, but consider <Link to="/users" id="sign-in-link">signing in</Link> to like and comment on our board game reviews. </p> : <p className="welcome-message">Welcome back {loggedUser.name}!<br/> Browse, comment on and like our reviews to your hearts content</p>}
 
@@ -85,4 +93,5 @@ export default function Homepage() {
         <br/><br/><br/><br/><br/><br/><br/><br/>
     </>
     )
+    return returnItem;
 }
