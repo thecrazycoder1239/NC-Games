@@ -53,8 +53,8 @@ export function getUsers() {
     })
 }
 
-export function patchReview(review_id) {
-    return gamesApi.patch(`/reviews/${review_id}`, { inc_votes: 1 }).then(response => {
+export function patchReview(review_id, hasVoted) {
+    return gamesApi.patch(`/reviews/${review_id}`, { inc_votes: hasVoted }).then(response => {
         return response;
     })
 }

@@ -55,7 +55,7 @@ export default function ShowReviews() {
 
 
     if(error) {
-        return (<p className="search-error">reviews not found for chosen filters</p>)
+        return (<p className="search-error">404: reviews not found</p>)
     }
 
    if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
@@ -112,9 +112,9 @@ export default function ShowReviews() {
             <option key="acs" value="asc">ascending</option>
             <option key="desc" value="desc">descending</option>
         </select>
-        <button class="search-btn" type="submit">search</button>
+        <button className="search-btn" type="submit">search</button>
     </form>
-    {categoryDescription !== "" ? <p class="category-description">{categoryDescription}</p> : null}
+    {categoryDescription !== "" ? <p className="category-description">{categoryDescription}</p> : null}
         <ol className="review-list">
             {
             reviews.map(review => {

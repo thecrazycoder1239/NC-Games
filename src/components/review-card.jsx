@@ -9,13 +9,21 @@ export default function ReviewCard({ review }) {
     const [err, setErr] = useState(false);
     const [userErr, setUserErr] = useState(false);
     const [userVote, setUserVote] = useState(0);
-    const { loggedUser } = useContext(UsernameContext)
+    const [hasVoted, setHasVoted] = useState(1)
+    const { loggedUser } = useContext(UsernameContext);
     
     
     const onClick = () => {
         setErr(false);
         setUserVote(1);
-        patchReview(review.review_id).catch(() => {
+        patchReview(review.review_id, hasVoted).then(() => {
+            if(hasVoted === 1) {
+                setHasVoted(-1)
+            } else if (hasVoted === -1) {
+                setUserVote(0)
+                setHasVoted(1)
+            }
+        }).catch(() => {
             setUserVote(0);
             setErr(true);
         })
@@ -77,13 +85,13 @@ export default function ReviewCard({ review }) {
             <img src={review.review_img_url} alt="review image" className="review-img"/>
             <p className="review-title">{review.title}</p>
             <div className="review-info">
+            {err ? <p className="vote-error">please connect to wifi to vote</p> : null}
                 <p className="review-comment-count">{review.comment_count} comments</p>
                 <p className="review-date">{timePasted}</p>
             </div>
             </Link>
             <div className="card-footer">
-                <button onClick={onClick} disabled={userVote !== 0 || err || userErr} className="vote-btn">{review.votes + userVote} 👍</button>
-                {err ? <p className="vote-error">please connect to wifi to vote</p> : null}
+                <button onClick={onClick} disabled={userErr} className={userVote === 1 ? "vote-btn-deactivate" : "vote-btn-activate"}>{review.votes + userVote} 👍</button>
             </div>
         </li>
     )
