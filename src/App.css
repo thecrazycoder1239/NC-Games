@@ -56,7 +56,7 @@ body {
     opacity: 90%;
     border-radius: 0.5rem;
     position: relative;
-    top: 3rem;
+    top: 5rem;
 }
 
 .all-reviews-btn:hover {
@@ -121,12 +121,12 @@ body {
 
 .most-popular-reviews {
     position: relative;
-    top: 5rem;
+    top: 7rem;
 }
 
 .trendy-reviews {
     position: relative;
-    top: 4rem;
+    top: 6rem;
 }
 
 .most-popular-reviews-title {
