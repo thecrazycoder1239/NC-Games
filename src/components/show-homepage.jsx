@@ -31,7 +31,7 @@ export default function Homepage() {
             const reviews = response.data.reviews;
             setTrendyReviews(reviews.slice(0, 5))
         })
-    })
+    }, [])
 
     useEffect(() => {
         if(loggedUser.username !== 'guest user') {

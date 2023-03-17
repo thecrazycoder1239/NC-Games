@@ -47,7 +47,7 @@ export default function ShowReviews() {
 
     useEffect(() => {
         categories.map(category => {
-            if(category.slug === selectedCategory) {
+            if(category.slug === selectedCategory && selectedCategory !== category.description) {
                 setCategoryDescription(category.description)
             }
             return null;
