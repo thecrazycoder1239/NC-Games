@@ -37,6 +37,7 @@ Hello there, weary traveller!
 * react
 * react-dom
 * react-router-dom
+* JS / JSX
 * css
 * axios
 * dayjs
