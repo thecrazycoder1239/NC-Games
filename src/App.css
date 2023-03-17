@@ -27,6 +27,97 @@ body {
     transition: all 0.2s ease-out;
 }
 
+.most-recent-review {
+    text-decoration: none;
+}
+
+.check-out-this-review {
+    color: black;
+    padding: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2.5%;
+    margin-right: 45%;
+    background-color: #F06543;
+    border-radius: 0.25rem;
+    text-align: left;
+    border: 0.2rem solid #313638;
+    transition: all 0.2s ease-out;
+    position: relative;
+    top: 9rem;
+    z-index: 1;
+}
+
+.all-reviews-btn {
+    width: 20rem;
+    height: 3rem;
+    display:block;
+    margin: 0 auto;
+    opacity: 90%;
+    border-radius: 0.5rem;
+    position: relative;
+    top: 5rem;
+}
+
+.all-reviews-btn:hover {
+    opacity: 100%;
+    border: 0.2rem solid #313638;
+    box-shadow: 0px 0px 15px #F06543;
+    scale: 1.05;
+}
+
+.welcome-message {
+        padding: 1rem;
+        margin-top: 0rem;
+        margin-bottom: 0.5rem;
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: #F06543;
+        border-radius: 0.25rem;
+        text-align: center;
+        align-items: center;
+        border: 0.2rem solid #313638;
+        transition: all 0.2s ease-out;
+}
+
+.most-recent-review-img {
+    display:block;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 2rem;
+    position: absolute;
+    top: 6rem;
+    z-index: -1;
+    transition: all 0.2s ease-out;
+}
+
+.btn-style-none {
+    text-decoration: none;
+}
+
+.most-recent-review-title {
+    margin-left: 8px;
+    font-size: 2rem;
+    background-color: rgba(49, 54, 56, 0.9);
+    padding: 1rem;
+    color: #F09D51;
+    text-align: left;
+    width: 80vw;
+    position: relative;
+    top: 6rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+    padding-bottom: 2rem;
+}
+
+.most-recent-review-designer {
+    position: relative;
+    width:70%;
+    left: 1rem;
+    top: 2.5rem;
+    color: #E0DFD5;
+    text-align:left;
+}
+
 .footer {
     position: relative;
     top: 8px;
@@ -485,7 +576,9 @@ position: relative;
     border-radius: 0.25rem;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.search-btn:hover,
+.comment-adder-button:hover {
     background-color: #c5c5bc;
 }
 
@@ -504,6 +597,26 @@ position: relative;
         bottom: 2.7rem;
         text-align: left;
         font-size: 4rem;
+    }
+
+    .most-recent-review-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 8%;
+        top: 12.5rem;
+    }
+
+    .most-recent-review-designer {
+        top: 3rem;
+        font-size: 1.3rem;
+        margin-left: 8%;
+        top: 9.5rem;
+    }
+
+    .check-out-this-review {
+        margin-left: 10%;
+        margin-right: 50%;
+        top: 16rem;
     }
 
     .search-form {
@@ -737,6 +850,16 @@ position: relative;
 
   @media only screen and (min-width: 870px) {
 
+    .most-recent-review-img {
+        width: 55rem;
+        border-radius: 1rem;
+        margin: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        
+    }
+
     .review-id-img {
         border-radius: 20px;
         width: 50rem;
@@ -791,6 +914,15 @@ position: relative;
         padding: 2rem;
         font-size: 1.9rem;
         border-radius: 0.5rem;
+    }
+
+    .welcome-message {
+        font-size: 1.2rem;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        text-align: left;
+        margin-left: -1%;
+        margin-right: 60%;
     }
     
     .log-in-title {

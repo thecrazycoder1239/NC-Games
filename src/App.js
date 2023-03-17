@@ -7,6 +7,7 @@ import UserSelect from './components/user-select';
 import { getUsers } from "./utils/axiosData";
 import { useState, useEffect } from "react";
 import Footer from "./components/footer";
+import Homepage from './components/show-homepage';
 
 function App() {
   const [ users, setUsers ] = useState([]);
@@ -21,7 +22,8 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path="/" element={<ShowReviews/>}/>
+        <Route path="/" element={<Homepage/>}/>
+        <Route path="/search" element={<ShowReviews/>}/>
         <Route path="/reviews/:review_id" element={<ReviewIdAndComments users={users}/>}/>
         <Route path="/users" element={<UserSelect users={users}/>}/>
         <Route path="/*" element={<p className="search-error">path not found</p>}/>
