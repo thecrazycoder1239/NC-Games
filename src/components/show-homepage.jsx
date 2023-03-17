@@ -2,21 +2,36 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { UsernameContext } from "../context/username";
 import { getReviews } from "../utils/axiosData";
+import ReviewCard from "./review-card";
 
 
 export default function Homepage() {
     const {loggedUser} = useContext(UsernameContext)
     const [hasSignedIn, setHasSignedIn] = useState(false)
-    const [reviews, setReviews] = useState([])
+    const [popularReviews, setPopularReviews] = useState([])
+    const [trendyReviews, setTrendyReviews] = useState([])
     const [mostRecentReview, setMostRecentReview] = useState("")
 
     useEffect(() => {
         getReviews().then(response => {
             const reviews = response.data.reviews;
-            setReviews(reviews)
             setMostRecentReview(reviews[0])
         })
     }, [])
+
+    useEffect(() => {
+        getReviews(undefined, 'votes', 'desc').then(response => {
+            const reviews = response.data.reviews;
+            setPopularReviews(reviews.slice(0, 5))
+        })
+    }, [])
+
+    useEffect(() => {
+        getReviews(undefined, 'comment_count', 'desc').then(response => {
+            const reviews = response.data.reviews;
+            setTrendyReviews(reviews.slice(0, 5))
+        })
+    })
 
     useEffect(() => {
         if(loggedUser.username !== 'guest user') {
@@ -36,12 +51,38 @@ export default function Homepage() {
             <p className="most-recent-review-designer">made by {mostRecentReview.designer}</p>
         </Link>
 
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
         <Link to="/search" className="btn-style-none">
             <button className="all-reviews-btn">Search all reviews</button>
         </Link>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <section className="most-popular-reviews">
+            <h3 className="most-popular-reviews-title">Most popular reviews</h3>
+            <ol className="review-list">
+            {
+            popularReviews.map(review => {
+                    return (
+                                <ReviewCard review={review}
+                                key={review.review_id}/>
+                            )
+                })
+            }
+        </ol>
+        </section>
+
+        <section className="trendy-reviews">
+            <h3 className="most-popular-reviews-title">Trending reviews</h3>
+            <ol className="review-list">
+            {
+            trendyReviews.map(review => {
+                    return (
+                                <ReviewCard review={review}
+                                key={review.review_id}/>
+                            )
+                })
+            }
+        </ol>
+        </section>
+        <br/><br/><br/><br/>
     </>
     )
 }
