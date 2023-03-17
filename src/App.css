@@ -607,7 +607,8 @@ position: relative;
 
 .submit-btn:hover,
 .search-btn:hover,
-.comment-adder-button:hover {
+.comment-adder-button:hover,
+.comment-remover-btn:hover {
     background-color: #c5c5bc;
 }
 
