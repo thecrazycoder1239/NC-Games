@@ -19,8 +19,8 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
 
     let timePasted = null;
 
-    if(seconds === 1) {
-        timePasted = `posted ${seconds} second ago`
+    if(seconds === 1 || seconds === 0) {
+        timePasted = `posted 1 second ago`
     } else if (seconds < 60) {
         timePasted = `posted ${seconds} seconds ago`
     } else if (minutes === 1) {

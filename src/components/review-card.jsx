@@ -76,8 +76,10 @@ export default function ReviewCard({ review }) {
             <Link to={`/reviews/${review.review_id}`} className="link">
             <img src={review.review_img_url} alt="review image" className="review-img"/>
             <p className="review-title">{review.title}</p>
-            <p className="review-comment-count">{review.comment_count} comments</p>
-            <p className="review-date">{timePasted}</p>
+            <div className="review-info">
+                <p className="review-comment-count">{review.comment_count} comments</p>
+                <p className="review-date">{timePasted}</p>
+            </div>
             </Link>
             <div className="card-footer">
                 <button onClick={onClick} disabled={userVote !== 0 || err || userErr} className="vote-btn">{review.votes + userVote} 👍</button>
