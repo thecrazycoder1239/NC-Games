@@ -28,15 +28,20 @@ export default function ShowReviews() {
     const [categoryDescription, setCategoryDescription] = useState("")
     const [selectedSortBy, setSelectedSortBy] = useState(sortByQuery)
     const [selectedOrderBy, setSelectedOrderBy] = useState(orderByQuery)
+    const [hasSearched, setHasSearched] = useState(false)
 
     useEffect(() => {
+        if(hasSearched) {
         getReviews(selectedCategory, selectedSortBy, selectedOrderBy).then(response => {
             setReviews(response.data.reviews)
             setIsLoading(false)
+            hasSearched(false)
         }).catch((error) => {
             setError(true)
             setIsLoading(false)
+            hasSearched(false)
         })
+        }
     },[searchParams, selectedOrderBy, selectedSortBy, selectedCategory])
 
     useEffect(() => {
@@ -86,6 +91,7 @@ export default function ShowReviews() {
         setIsLoading(true)
         setHasSubmitted(true)
         setCategoryDescription("")
+        setHasSearched(true)
     }} className="search-form">
         <select id="category-selector" onChange={(event) => {
                 setSelectedCategory(event.target.value)
