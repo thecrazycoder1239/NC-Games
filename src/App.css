@@ -669,6 +669,7 @@ position: relative;
     .vote-btn-activate,
     .vote-btn-deactivate {
         font-size: 0.7rem;
+        border: 0.1 solid #313638;
         width: 4rem;
         color: #313638;
     }
