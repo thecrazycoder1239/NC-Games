@@ -666,10 +666,16 @@ position: relative;
         top: 3rem;
     }
 
-    .vote-btn-activate,
-    .vote-btn-deactivate {
+    .vote-btn-activate {
         font-size: 0.7rem;
         border: 0.1rem solid #313638;
+        width: 4rem;
+        color: #313638;
+    }
+    
+    .vote-btn-deactivate {
+        font-size: 0.7rem;
+        border: 0.1rem solid #8f9192;
         width: 4rem;
         color: #313638;
     }
