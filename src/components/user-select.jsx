@@ -16,7 +16,7 @@ export default function UserSelect({users}) {
             let isTrueOrFalse = true;
             
             users.map(user => {
-                if(user.username === submitUsername) {
+                if(user.username === submitUsername.toLowerCase()) {
                     setLoggedUser({
                         ...user
                     });

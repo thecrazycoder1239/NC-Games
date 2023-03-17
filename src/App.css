@@ -58,6 +58,7 @@ body {
     position: relative;
     top: 5rem;
     transition: all 0.2s ease-out;
+    border: 0.15rem solid #313638;
 }
 
 .all-reviews-btn:hover {
@@ -618,7 +619,29 @@ position: relative;
     color:rgb(148, 2, 2)
 }
 
-@media only screen and (max-width: 500px) { 
+@media only screen and (max-width: 500px) {
+    
+    .submit-btn {
+        color: #313638;
+        border: 0.1rem solid #313638;
+    }
+
+    #comment-adder-input {
+        width: 85%
+    }
+
+    .comment-remover-btn {
+        color:#313638;
+        border: 0.1rem solid #313638;
+    }
+
+    .comment-adder-button {
+        left: 64.5%;
+        background-color: #E0DFD5;
+        color: #313638;
+        border: 0.1rem solid #313638;
+    }
+
     .most-recent-review-title {
         top: 0rem;
     }
@@ -634,11 +657,23 @@ position: relative;
 
     .all-reviews-btn {
         top: 0rem;
+        color: #313638;
     }
 
     .most-popular-reviews {
         position: relative;
         top: 3rem;
+    }
+
+    .vote-btn-activate,
+    .vote-btn-deactivate {
+        font-size: 0.7rem;
+        width: 4rem;
+        color: #313638;
+    }
+
+    .review-title {
+        bottom: 1rem;
     }
 }
 
