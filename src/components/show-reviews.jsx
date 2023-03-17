@@ -63,16 +63,18 @@ export default function ShowReviews() {
     if(error) {
         return (<p className="search-error">404: reviews not found</p>)
     }
-
-   if(selectedOrderBy === "comment_count" && selectedSortBy === 'asc') {
-        reviews.sort((a, b) => {
-            return a.comment_count - b.comment_count
-        })
-   } else if (selectedOrderBy === "comment_count" && selectedSortBy === 'desc') {
-        reviews.sort((a, b) => {
-            return b.comment_count - a.comment_count
-    })
-   }
+    if(hasSearched) {
+        if(selectedSortBy === "comment_count" && selectedOrderBy === 'asc') {
+            reviews.sort((a, b) => {
+                console.log(parseInt(a.comment_count))
+                return parseInt(a.comment_count) - parseInt(b.comment_count)
+            })
+       } else if (selectedSortBy === "comment_count" && selectedOrderBy === 'desc') {
+            reviews.sort((a, b) => {
+                return parseInt(b.comment_count) - parseInt(a.comment_count)
+            })
+       }
+    }
 
     const returnItem = isLoading ? (
     <div className="progress-container">

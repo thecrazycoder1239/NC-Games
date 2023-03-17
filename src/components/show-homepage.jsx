@@ -27,7 +27,7 @@ export default function Homepage() {
     }, [])
 
     useEffect(() => {
-        getReviews(undefined, 'comment_count', 'desc').then(response => {
+        getReviews(undefined, 'created_at', 'desc').then(response => {
             const reviews = response.data.reviews;
             setTrendyReviews(reviews.slice(0, 5))
         })
