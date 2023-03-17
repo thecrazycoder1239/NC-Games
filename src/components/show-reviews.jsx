@@ -42,7 +42,7 @@ export default function ShowReviews() {
             hasSearched(false)
         })
         }
-    },[searchParams, selectedOrderBy, selectedSortBy, selectedCategory])
+    },[searchParams, selectedOrderBy, selectedSortBy, selectedCategory, hasSearched])
 
     useEffect(() => {
         getCategories().then(response => {
