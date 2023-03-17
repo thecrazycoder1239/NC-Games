@@ -617,6 +617,30 @@ position: relative;
     color:rgb(148, 2, 2)
 }
 
+@media only screen and (max-width: 500px) { 
+    .most-recent-review-title {
+        top: 0rem;
+    }
+    
+    .most-recent-review-designer {
+        top: -3.5rem;
+    }
+
+    .check-out-this-review {
+        top: 2.7rem;
+        left: 1rem;
+    }
+
+    .all-reviews-btn {
+        top: 0rem;
+    }
+
+    .most-popular-reviews {
+        position: relative;
+        top: 3rem;
+    }
+}
+
 @media only screen and (min-width: 700px) {
 
     .header {
@@ -625,6 +649,29 @@ position: relative;
         text-align: left;
         font-size: 4rem;
     }
+
+
+.most-popular-reviews {
+    position: relative;
+    top: 11rem;
+}
+
+.trendy-reviews {
+    position: relative;
+    top: 10rem;
+}
+
+.most-popular-reviews-title {
+    font-size: 1.9rem;
+    position: relative;
+    top: 1rem;
+}
+
+
+.all-reviews-btn {
+    top: 10.3rem;
+}
+
 
     .most-recent-review-title {
         font-size: 2.5rem;
