@@ -4,7 +4,7 @@
 
 Hello there, weary traveller!
 
-  You have arrived at the repository of my front end for my **House Of Games backend API**. please check out the repo for this for context (https://github.com/thecrazycoder1239/BE-NC-Games-public-project).
+  You have arrived at the repository of my front end for my **House Of Games backend API**. please check out the repo for this for context (https://github.com/thecrazycoder1239/NC-Games-BE).
   
   My application is a social media platform for board game reviews, inspired by platforms such as Rotten Tomatoes. As a user, you can upvote and comment on reviews (or delete your comments) to give your take on board games you have tried. However, if you are only signed in as the default guest user, you can still read the reviews and narrow down your searches for them with specified filters. 
   
