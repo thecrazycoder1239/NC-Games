@@ -57,6 +57,7 @@ body {
     border-radius: 0.5rem;
     position: relative;
     top: 5rem;
+    transition: all 0.2s ease-out;
 }
 
 .all-reviews-btn:hover {
@@ -98,7 +99,7 @@ body {
 .most-recent-review-title {
     margin-left: 8px;
     font-size: 2rem;
-    background-color: rgba(49, 54, 56, 0.9);
+    background-color: rgba(49, 54, 56, 1);
     padding: 1rem;
     color: #F09D51;
     text-align: left;
