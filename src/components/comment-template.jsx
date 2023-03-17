@@ -21,31 +21,31 @@ export default function CommentTemplate({comment, avatarUrl, setComments}) {
 
     if(seconds === 1 || seconds === 0) {
         timePasted = `posted 1 second ago`
-    } else if (seconds < 60) {
+    } else if (seconds < 60 && seconds > 1) {
         timePasted = `posted ${seconds} seconds ago`
     } else if (minutes === 1) {
         timePasted = `posted ${minutes} minute ago`
-    } else if (minutes < 60) {
+    } else if (minutes < 60 && minutes > 1) {
         timePasted = `posted ${minutes} minutes ago`
     } else if (hours === 1) {
         timePasted = `posted ${hours} hour ago`
-    } else if (hours < 24) {
+    } else if (hours < 24 && hours > 1) {
         timePasted = `posted ${hours} hours ago`
     } else if (days === 1) {
         timePasted = `posted ${days} day ago`
-    } else if (days < 7) {
+    } else if (days < 7 && days > 1) {
         timePasted = `posted ${days} days ago`
     } else if (weeks === 1) {
         timePasted = `posted ${weeks} week ago`
-    } else if (weeks < 4) {
+    } else if (weeks < 4 && weeks > 1) {
         timePasted = `posted ${weeks} weeks ago`
     } else if (months === 1) {
         timePasted = `posted ${months} month ago`
-    } else if (months < 12) {
+    } else if (months < 12 && months > 1) {
         timePasted = `posted ${months} months ago`
     } else if (years === 1) {
         timePasted = `posted ${years} year ago`
-    } else if (years) {
+    } else if (years > 1) {
         timePasted = `posted ${years} years ago`
     }
 
