@@ -28,18 +28,18 @@ export default function ShowReviews() {
     const [categoryDescription, setCategoryDescription] = useState("")
     const [selectedSortBy, setSelectedSortBy] = useState(sortByQuery)
     const [selectedOrderBy, setSelectedOrderBy] = useState(orderByQuery)
-    const [hasSearched, setHasSearched] = useState(false)
+    const [hasSearched, setHasSearched] = useState(true)
 
     useEffect(() => {
         if(hasSearched) {
         getReviews(selectedCategory, selectedSortBy, selectedOrderBy).then(response => {
             setReviews(response.data.reviews)
             setIsLoading(false)
-            hasSearched(false)
+            setHasSearched(false)
         }).catch((error) => {
             setError(true)
             setIsLoading(false)
-            hasSearched(false)
+            setHasSearched(false)
         })
         }
     },[searchParams, selectedOrderBy, selectedSortBy, selectedCategory, hasSearched])
@@ -52,12 +52,12 @@ export default function ShowReviews() {
 
     useEffect(() => {
         categories.map(category => {
-            if(category.slug === selectedCategory && selectedCategory !== category.description) {
+            if(category.slug === selectedCategory && selectedCategory !== category.description && hasSearched) {
                 setCategoryDescription(category.description)
             }
             return null;
         })
-    }, [searchParams, categories, selectedCategory])
+    }, [searchParams, categories, selectedCategory, hasSearched])
 
 
     if(error) {
