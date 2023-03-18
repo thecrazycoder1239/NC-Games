@@ -33,7 +33,21 @@ export default function ShowReviews() {
     useEffect(() => {
         if(hasSearched) {
         getReviews(selectedCategory, selectedSortBy, selectedOrderBy).then(response => {
-            setReviews(response.data.reviews)
+
+            const responseReviews = response.data.reviews;
+
+            if(selectedSortBy === "comment_count" && selectedOrderBy === 'asc') {
+                responseReviews.sort((a, b) => {
+                    console.log(parseInt(a.comment_count))
+                    return parseInt(a.comment_count) - parseInt(b.comment_count)
+                })
+           } else if (selectedSortBy === "comment_count" && selectedOrderBy === 'desc') {
+                responseReviews.sort((a, b) => {
+                    return parseInt(b.comment_count) - parseInt(a.comment_count)
+                })
+           }
+           
+            setReviews(responseReviews)
             setIsLoading(false)
             setHasSearched(false)
         }).catch((error) => {
@@ -62,18 +76,6 @@ export default function ShowReviews() {
 
     if(error) {
         return (<p className="search-error">404: reviews not found</p>)
-    }
-    if(hasSearched) {
-        if(selectedSortBy === "comment_count" && selectedOrderBy === 'asc') {
-            reviews.sort((a, b) => {
-                console.log(parseInt(a.comment_count))
-                return parseInt(a.comment_count) - parseInt(b.comment_count)
-            })
-       } else if (selectedSortBy === "comment_count" && selectedOrderBy === 'desc') {
-            reviews.sort((a, b) => {
-                return parseInt(b.comment_count) - parseInt(a.comment_count)
-            })
-       }
     }
 
     const returnItem = isLoading ? (
