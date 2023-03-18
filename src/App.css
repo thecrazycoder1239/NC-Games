@@ -686,6 +686,34 @@ position: relative;
     .review-img {
         border-radius: 0.4rem;
     }
+
+    .search-btn {
+        font-size: 0.7rem;
+        border: 0.1rem solid #313638;
+        width: 4rem;
+        color: #313638;
+    }
+
+    #sort-by-selector {
+        font-size: 0.7rem;
+        border: 0.1rem solid #313638;
+        width: 5rem;
+        color: #313638;
+    }
+
+    #category-selector {
+        font-size: 0.7rem;
+        border: 0.1rem solid #313638;
+        width: 5rem;
+        color: #313638;
+    }
+
+    #order-by-selector {
+        font-size: 0.7rem;
+        border: 0.1rem solid #313638;
+        width: 5rem;
+        color: #313638;
+    }
 }
 
 @media only screen and (min-width: 700px) {
